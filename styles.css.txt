@@ -1,0 +1,244 @@
+/* --- Base Reset & Mobile-First Styling --- */
+:root {
+    --primary-color: #007bff; /* Deep Blue for CTAs */
+    --secondary-color: #f8f9fa; /* Light Grey background */
+    --text-color: #333;
+    --border-radius: 8px;
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* Clean white background */
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: #212529;
+}
+
+.product-container {
+    padding: 10px;
+    padding-top: 55px; /* Space for fixed header */
+}
+
+/* --- 1. Header and Navigation --- */
+.mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    height: 50px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    z-index: 1000; /* Ensure it stays on top */
+}
+.mobile-header h1 {
+    font-size: 1.5em;
+    margin: 0;
+    color: var(--primary-color);
+}
+.mobile-header a {
+    text-decoration: none;
+}
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* --- 2. Product Display --- */
+.image-gallery {
+    margin-bottom: 20px;
+}
+.main-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+.thumbnail-previews {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+.thumbnail {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border 0.2s;
+}
+.thumbnail.active {
+    border-color: var(--primary-color);
+}
+
+/* --- 3. Product Info and Pricing --- */
+.product-title {
+    font-size: 1.6em;
+    margin-top: 0;
+}
+.short-description {
+    color: #6c757d;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+.price-section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 15px;
+}
+.current-price {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #dc3545; /* Highlight price */
+    margin-right: 10px;
+}
+.mrp {
+    color: #6c757d;
+    font-size: 0.9em;
+}
+.discount {
+    color: #28a745;
+    font-weight: bold;
+}
+.key-features ul {
+    list-style: none;
+    padding: 0;
+}
+.key-features li {
+    background: var(--secondary-color);
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+/* --- 4. Full Details/Specs (Using <details>) --- */
+.full-description {
+    margin-top: 20px;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+.detail-section summary {
+    font-weight: bold;
+    padding: 10px 0;
+    cursor: pointer;
+    border-bottom: 1px solid var(--secondary-color);
+    margin-bottom: 5px;
+}
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.spec-table th, .spec-table td {
+    border: 1px solid #eee;
+    padding: 8px;
+    text-align: left;
+    font-size: 0.9em;
+}
+.spec-table th {
+    background-color: var(--secondary-color);
+}
+
+/* --- 5. Sticky CTA Bar (Required Feature) --- */
+.sticky-cta-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 15px;
+    background-color: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+.padding-for-footer {
+    height: 70px; /* Adjust height based on sticky-cta-bar height */
+}
+.cta-btn {
+    flex: 1;
+    padding: 15px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+}
+.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+.secondary {
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+/* --- Desktop/Tablet Adaptations (Requirement 3) --- */
+@media (min-width: 768px) {
+    .product-container {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 20px;
+        gap: 30px;
+    }
+    .image-gallery {
+        flex: 1;
+        max-width: 500px;
+    }
+    .product-info-details {
+        flex: 1;
+        max-width: 400px;
+    }
+    .full-description {
+        flex-basis: 100%; /* Take full width below the main sections */
+        border-top: none;
+    }
+    /* Hide sticky bar on large screens (optional, but good practice) */
+    .sticky-cta-bar {
+        position: static;
+        width: auto;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+    .mobile-header {
+        position: static;
+        border-bottom: none;
+    }
+    .padding-for-footer {
+        height: 0;
+    }
+    /* Move CTA buttons into the product-info section */
+    .sticky-cta-bar {
+        /* You would restructure the HTML for a proper desktop layout */
+        display: none; /* Hide the fixed bar for this simple example */
+    }
+    
+    /* For a quick desktop CTA fix, put buttons back in product-info */
+    .product-info-details::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .product-info-details .cta-btn {
+        display: block;
+        margin: 10px 0;
+    }
+}

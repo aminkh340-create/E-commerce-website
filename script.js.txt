@@ -1,0 +1,55 @@
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const mainImage = document.getElementById('main-product-img');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const addToCartBtn = document.getElementById('add-to-cart-btn');
+    const wishlistBtn = document.getElementById('wishlist-btn');
+
+    // --- 1. Product Image Display Logic (Requirement 2) ---
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+            // Update the main image source
+            const newSrc = thumbnail.getAttribute('data-full-src');
+            mainImage.src = newSrc;
+            
+            // Update the active class for styling
+            thumbnails.forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+        });
+    });
+
+    // --- 2. Add to Cart Feature (Requirement 4) ---
+    addToCartBtn.addEventListener('click', () => {
+        // In a real application, this would send data to a server.
+        // Here, we provide a smooth, functional alert/feedback.
+        
+        // Simple counter (simulating adding 1 item)
+        let cartCount = parseInt(localStorage.getItem('cartCount') || '0');
+        cartCount++;
+        localStorage.setItem('cartCount', cartCount);
+
+        alert(`🛒 Added XpressPhone Pro to cart! Your cart now has ${cartCount} item(s).`);
+        
+        // Optional: Change button text briefly
+        addToCartBtn.textContent = '✅ Added!';
+        setTimeout(() => {
+            addToCartBtn.textContent = '🛒 Add to Cart';
+        }, 1500);
+    });
+
+    // --- 3. Wishlist Feature (Requirement 4) ---
+    wishlistBtn.addEventListener('click', () => {
+        if (wishlistBtn.classList.contains('active-wishlist')) {
+            // Remove from wishlist
+            wishlistBtn.classList.remove('active-wishlist');
+            wishlistBtn.textContent = '⭐ Wishlist';
+            alert('Removed from Wishlist.');
+        } else {
+            // Add to wishlist
+            wishlistBtn.classList.add('active-wishlist');
+            wishlistBtn.textContent = '💖 Added to Wishlist';
+            alert('Added XpressPhone Pro to Wishlist!');
+        }
+    });
+
+});

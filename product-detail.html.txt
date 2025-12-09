@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XpressPhone Pro | PhoneXpress</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <header class="mobile-header">
+        <a href="#top"><h1>PhoneXpress</h1></a>
+        <div class="header-icons">
+            <button class="icon-btn">🔍</button>
+            <a href="#" class="icon-btn">🛒</a>
+        </div>
+    </header>
+
+    <main class="product-container">
+        <section class="image-gallery">
+            <div class="main-image-container">
+                <img id="main-product-img" src="https://via.placeholder.com/600x600?text=Phone+Front" alt="XpressPhone Pro Front View">
+            </div>
+            <div class="thumbnail-previews">
+                <img src="https://via.placeholder.com/100x100?text=Front" data-full-src="https://via.placeholder.com/600x600?text=Phone+Front" alt="Front View" class="thumbnail active">
+                <img src="https://via.placeholder.com/100x100?text=Back" data-full-src="https://via.placeholder.com/600x600?text=Phone+Back" alt="Back View" class="thumbnail">
+                <img src="https://via.placeholder.com/100x100?text=Side" data-full-src="https://via.placeholder.com/600x600?text=Phone+Side" alt="Side View" class="thumbnail">
+                <img src="https://via.placeholder.com/100x100?text=Cam" data-full-src="https://via.placeholder.com/600x600?text=Phone+Camera" alt="Camera Close-up" class="thumbnail">
+            </div>
+        </section>
+
+        <section class="product-info-details">
+            <h2 class="product-title">XpressPhone Pro (256GB, Cosmic Black)</h2>
+            <p class="short-description">The ultimate flagship with a 108MP camera and 5G connectivity.</p>
+            
+            <div class="price-section">
+                <span class="current-price">₹ 79,999</span>
+                <span class="mrp"><del>₹ 89,999</del></span>
+                <span class="discount">(11% Off)</span>
+            </div>
+            
+            <div class="key-features">
+                <ul>
+                    <li>**6.7" AMOLED** Pro-Motion Display</li>
+                    <li>**12 GB RAM**, 5000mAh Battery</li>
+                    <li>**IP68** Water Resistance</li>
+                </ul>
+            </div>
+
+            <div class="configuration-options">
+                <label for="storage">Storage:</label>
+                <select id="storage">
+                    <option value="128">128 GB</option>
+                    <option value="256" selected>256 GB</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="full-description">
+            <h3>Full Product Details</h3>
+            
+            <details open class="detail-section">
+                <summary>Product Overview</summary>
+                <p>The XpressPhone Pro defines the next generation of mobile computing. Experience unparalleled speed and capture stunning, professional-grade photos with its revolutionary 108MP camera. Designed for the modern professional, it seamlessly blends power and elegance.</p>
+            </details>
+
+            <details class="detail-section">
+                <summary>Full Specifications</summary>
+                <table class="spec-table">
+                    <tr><th>Parameter</th><th>Detail</th></tr>
+                    <tr><td>Processor</td><td>Octa-Core Ultra-Speed Chip</td></tr>
+                    <tr><td>RAM</td><td>12 GB LPDDR5</td></tr>
+                    <tr><td>OS</td><td>Android 14 (Modified)</td></tr>
+                    <tr><td>Water Resistance</td><td>IP68 Certified</td></tr>
+                </table>
+            </details>
+
+            <details class="detail-section">
+                <summary>Customer Reviews (4.5/5)</summary>
+                <p>⭐️⭐️⭐️⭐️✨ (Based on 1,500 ratings). High praise for camera quality and battery life.</p>
+            </details>
+        </section>
+        
+        <div class="padding-for-footer"></div> 
+
+    </main>
+
+    <footer class="sticky-cta-bar">
+        <button id="wishlist-btn" class="cta-btn secondary">⭐ Wishlist</button>
+        <button id="add-to-cart-btn" class="cta-btn primary">🛒 Add to Cart</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
